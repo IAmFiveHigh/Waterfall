@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C7D029CE0DC31D29782F750 /* Pods_Waterfall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135CD293324FA0B983D7F34F /* Pods_Waterfall.framework */; };
 		460C8CCB1E6D1E3E007BB2E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C8CCA1E6D1E3E007BB2E7 /* AppDelegate.swift */; };
 		460C8CCD1E6D1E3E007BB2E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C8CCC1E6D1E3E007BB2E7 /* ViewController.swift */; };
 		460C8CD01E6D1E3E007BB2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460C8CCE1E6D1E3E007BB2E7 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		135CD293324FA0B983D7F34F /* Pods_Waterfall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Waterfall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		460C8CC71E6D1E3E007BB2E7 /* Waterfall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waterfall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		460C8CCA1E6D1E3E007BB2E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		460C8CCC1E6D1E3E007BB2E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		460C8CD11E6D1E3E007BB2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		460C8CD41E6D1E3E007BB2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		460C8CD61E6D1E3E007BB2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC0F19FFAE219F0DD79D571 /* Pods-Waterfall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterfall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall.debug.xcconfig"; sourceTree = "<group>"; };
+		E059401923BFC6113FD1FC5B /* Pods-Waterfall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterfall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7D029CE0DC31D29782F750 /* Pods_Waterfall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14AC73C3C613E2EBC6E1259E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				135CD293324FA0B983D7F34F /* Pods_Waterfall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		460C8CBE1E6D1E3E007BB2E7 = {
 			isa = PBXGroup;
 			children = (
 				460C8CC91E6D1E3E007BB2E7 /* Waterfall */,
 				460C8CC81E6D1E3E007BB2E7 /* Products */,
+				950160988B384E6E0A04F93D /* Pods */,
+				14AC73C3C613E2EBC6E1259E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Waterfall;
 			sourceTree = "<group>";
 		};
+		950160988B384E6E0A04F93D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDC0F19FFAE219F0DD79D571 /* Pods-Waterfall.debug.xcconfig */,
+				E059401923BFC6113FD1FC5B /* Pods-Waterfall.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 460C8CD91E6D1E3E007BB2E7 /* Build configuration list for PBXNativeTarget "Waterfall" */;
 			buildPhases = (
+				C7BD802E9D1C08F80D5253E3 /* [CP] Check Pods Manifest.lock */,
 				460C8CC31E6D1E3E007BB2E7 /* Sources */,
 				460C8CC41E6D1E3E007BB2E7 /* Frameworks */,
 				460C8CC51E6D1E3E007BB2E7 /* Resources */,
+				2218FC5910D3AD2916316677 /* [CP] Embed Pods Frameworks */,
+				AF4F41992315E854E6B0D4C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2218FC5910D3AD2916316677 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF4F41992315E854E6B0D4C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7BD802E9D1C08F80D5253E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		460C8CC31E6D1E3E007BB2E7 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		460C8CDA1E6D1E3E007BB2E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDC0F19FFAE219F0DD79D571 /* Pods-Waterfall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K8B9VX64QJ;
@@ -270,6 +346,7 @@
 		};
 		460C8CDB1E6D1E3E007BB2E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E059401923BFC6113FD1FC5B /* Pods-Waterfall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K8B9VX64QJ;
@@ -300,6 +377,7 @@
 				460C8CDB1E6D1E3E007BB2E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
