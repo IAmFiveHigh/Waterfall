@@ -1,0 +1,19 @@
+PODS:
+  - CHTCollectionViewWaterfallLayout (0.9.5):
+    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.5)
+  - CHTCollectionViewWaterfallLayout/ObjC (0.9.5)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+
+DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+
+PODFILE CHECKSUM: ce3b8c58305c80a53c58632a1a303b58314e6372
+
+COCOAPODS: 1.1.1

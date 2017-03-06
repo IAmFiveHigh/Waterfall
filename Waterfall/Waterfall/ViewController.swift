@@ -47,6 +47,8 @@ class ViewController: UIViewController {
         view.addSubview(collectionView)
     }
     
+    
+    
     fileprivate func loadData() {
 
         DispatchQueue.global().async {
