@@ -45,56 +45,94 @@ class ViewController: UIViewController {
         
         collectionView.register(WaterCell.self, forCellWithReuseIdentifier: cellIdentifier)
         view.addSubview(collectionView)
-    }
-    
-    
+        
+}
     
     fileprivate func loadData() {
 
         DispatchQueue.global().async {
             
-            guard let url = URL(string: self.picturesSource) else { return  }
+            //MD5加密
+            let md5String = self.picturesSource.md5()
+            let filePath = NSHomeDirectory() + "/Documents/" + md5String
             
-            do {
-                
-                let data = try Data(contentsOf: url)
-                
+            var data: Data
+            
+            //判断本地是否有保存数据
+            let manager = FileManager.default
+            if manager.fileExists(atPath: filePath) {
+                //从本地文件调用data
                 do {
-                    let dict = try JSONSerialization.jsonObject(with: data, options: [.allowFragments,.mutableLeaves]) as! [String: Any]
-                
-                    let subData = dict["data"] as! [String: Any]
-                    let blogs = subData["blogs"] as! [[String: Any]]
-                    for object in blogs {
-                        
-                        let isrc = object["isrc"] as! String
-                        let iwd = object["iwd"] as! NSNumber.FloatLiteralType
-                        let iht = object["iht"] as! NSNumber.FloatLiteralType
-                        
-                        let model = PictureModel(imageURL: isrc, imageWidth: iwd, imageHeigth: iht)
-                        self.dataArray.append(model)
-                    }
                     
-                    DispatchQueue.main.async {
-                        
-                        self.collectionView.reloadData()
-                    }
-                    
-                } catch  {
+                    data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                    self.optionData(data: data)
+                }catch {
                     
                     print(error)
                 }
-            }catch {
                 
-                print(error)
+            }else {
+                
+                //从网络请求data
+                guard let url = URL(string: self.picturesSource) else { return  }
+                
+                do {
+
+                    data = try Data(contentsOf: url)
+                    
+                    self.writeData(data: data, to: filePath)
+                    self.optionData(data: data)
+                }catch {
+                    
+                    print(error)
+                }
             }
             
         }
+    }
+    
+    //MARK: 写入本地文件保存数据
+    fileprivate func writeData(data: Data, to filePath: String) {
         
+        do {
+            try data.write(to: URL(fileURLWithPath: filePath))
+        } catch  {
+            print(error)
+        }
+    }
+    
+    //MARK: 处理数据存入dataArry 刷新collectionView
+    fileprivate func optionData(data: Data) {
         
+        do {
+            let dict = try JSONSerialization.jsonObject(with: data, options: [.allowFragments,.mutableLeaves]) as! [String: Any]
+            
+            let subData = dict["data"] as! [String: Any]
+            let blogs = subData["blogs"] as! [[String: Any]]
+            for object in blogs {
+                
+                let isrc = object["isrc"] as! String
+                let iwd = object["iwd"] as! NSNumber.FloatLiteralType
+                let iht = object["iht"] as! NSNumber.FloatLiteralType
+                
+                let model = PictureModel(imageURL: isrc, imageWidth: iwd, imageHeigth: iht)
+                self.dataArray.append(model)
+            }
+            
+            DispatchQueue.main.async {
+                
+                self.collectionView.reloadData()
+            }
+            
+        }catch {
+            
+            print(error)
+        }
     }
 
 }
 
+//MARK: collectionView协议方法 CHTCollectionView协议方法
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

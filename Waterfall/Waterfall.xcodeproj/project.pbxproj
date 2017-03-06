@@ -13,6 +13,7 @@
 		460C8CD01E6D1E3E007BB2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460C8CCE1E6D1E3E007BB2E7 /* Main.storyboard */; };
 		460C8CD21E6D1E3E007BB2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 460C8CD11E6D1E3E007BB2E7 /* Assets.xcassets */; };
 		460C8CD51E6D1E3E007BB2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460C8CD31E6D1E3E007BB2E7 /* LaunchScreen.storyboard */; };
+		460C8D001E6D4CD6007BB2E7 /* StringMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C8CFF1E6D4CD6007BB2E7 /* StringMD5.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		460C8CD11E6D1E3E007BB2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		460C8CD41E6D1E3E007BB2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		460C8CD61E6D1E3E007BB2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		460C8CFB1E6D4CA1007BB2E7 /* Waterfall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Waterfall-Bridging-Header.h"; sourceTree = "<group>"; };
+		460C8CFF1E6D4CD6007BB2E7 /* StringMD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMD5.swift; sourceTree = "<group>"; };
 		DDC0F19FFAE219F0DD79D571 /* Pods-Waterfall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterfall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall.debug.xcconfig"; sourceTree = "<group>"; };
 		E059401923BFC6113FD1FC5B /* Pods-Waterfall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waterfall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waterfall/Pods-Waterfall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +54,7 @@
 		460C8CBE1E6D1E3E007BB2E7 = {
 			isa = PBXGroup;
 			children = (
+				460C8CFA1E6D4C7F007BB2E7 /* MD5 */,
 				460C8CC91E6D1E3E007BB2E7 /* Waterfall */,
 				460C8CC81E6D1E3E007BB2E7 /* Products */,
 				950160988B384E6E0A04F93D /* Pods */,
@@ -77,6 +81,15 @@
 				460C8CD61E6D1E3E007BB2E7 /* Info.plist */,
 			);
 			path = Waterfall;
+			sourceTree = "<group>";
+		};
+		460C8CFA1E6D4C7F007BB2E7 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				460C8CFB1E6D4CA1007BB2E7 /* Waterfall-Bridging-Header.h */,
+				460C8CFF1E6D4CD6007BB2E7 /* StringMD5.swift */,
+			);
+			name = MD5;
 			sourceTree = "<group>";
 		};
 		950160988B384E6E0A04F93D /* Pods */ = {
@@ -124,6 +137,7 @@
 					460C8CC61E6D1E3E007BB2E7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = K8B9VX64QJ;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,6 +228,7 @@
 			files = (
 				460C8CCD1E6D1E3E007BB2E7 /* ViewController.swift in Sources */,
 				460C8CCB1E6D1E3E007BB2E7 /* AppDelegate.swift in Sources */,
+				460C8D001E6D4CD6007BB2E7 /* StringMD5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +350,14 @@
 			baseConfigurationReference = DDC0F19FFAE219F0DD79D571 /* Pods-Waterfall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = K8B9VX64QJ;
 				INFOPLIST_FILE = Waterfall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LHC.Waterfall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Waterfall-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -349,11 +367,13 @@
 			baseConfigurationReference = E059401923BFC6113FD1FC5B /* Pods-Waterfall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = K8B9VX64QJ;
 				INFOPLIST_FILE = Waterfall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LHC.Waterfall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Waterfall-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
