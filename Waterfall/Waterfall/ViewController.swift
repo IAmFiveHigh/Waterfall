@@ -127,6 +127,8 @@ class WaterCell: UICollectionViewCell {
         super.init(frame: frame)
         
         imageView.frame = contentView.bounds
+        imageView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         contentView.addSubview(imageView)
     }
     
