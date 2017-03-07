@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         setupUI()
         
@@ -39,6 +38,7 @@ class ViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -127,6 +127,7 @@ class ViewController: UIViewController {
         }catch {
             
             print(error)
+            
         }
     }
 
@@ -148,6 +149,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         return cell
     }
     
+    //返回每个cell的size CHTCollectionView的协议方法
     func collectionView(_ collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAt indexPath: IndexPath!) -> CGSize {
         
         let model = dataArray[indexPath.row]
@@ -178,7 +180,17 @@ class WaterCell: UICollectionViewCell {
     
     fileprivate func loadContent(with url: String) {
         
-        imageView.sd_setImage(with: URL(string: url))
+        imageView.alpha = 0
+        
+        
+        imageView.sd_setImage(with: URL(string: url), completed: {[weak self] image, error, type, url in
+            
+            self?.imageView.image = image
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self?.imageView.alpha = 1
+            })
+        })
     }
 }
 
