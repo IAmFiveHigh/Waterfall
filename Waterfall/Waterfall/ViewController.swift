@@ -181,7 +181,7 @@ class WaterCell: UICollectionViewCell {
     fileprivate func loadContent(with url: String) {
         
         imageView.alpha = 0
-        
+        contentView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         
         imageView.sd_setImage(with: URL(string: url), completed: {[weak self] image, error, type, url in
             
@@ -189,6 +189,7 @@ class WaterCell: UICollectionViewCell {
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self?.imageView.alpha = 1
+                self?.contentView.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
         })
     }
